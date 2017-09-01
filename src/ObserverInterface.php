@@ -19,9 +19,9 @@ interface ObserverInterface
 {
 
     /**
-     * @param \Behavioral\Observer\EventIterface $event
+     * @param \Behavioral\Observer\EventInterface $event
      *
      * @return mixed
      */
-    public function update(EventIterface $event);
+    public function eventReaction(EventInterface $event);
 }
