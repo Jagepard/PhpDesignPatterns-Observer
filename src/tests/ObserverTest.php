@@ -82,7 +82,7 @@ class ObserverTest extends PHPUnit_Framework_TestCase
      *
      * @return ReflectionProperty
      */
-    protected function getProperty(string $name)//: ReflectionProperty
+    protected function getProperty(string $name): ReflectionProperty
     {
         $class = new ReflectionClass($this->getTeam());
         $property = $class->getProperty($name);
