@@ -43,18 +43,16 @@ class FootballSubject implements SubjectInterface
      */
     public function attachObserver(ObserverInterface $observer): void
     {
-        $this->observers[] = $observer;
+        $this->observers[$observer->getObserverName()] = $observer;
     }
 
     /**
-     * @param \Behavioral\Observer\ObserverInterface $observer
+     * @param string $observerName
      */
-    public function detachObserver(ObserverInterface $observer): void
+    public function detachObserver(string $observerName): void
     {
-        foreach ($this->observers as $key => $obs) {
-            if ($obs === $observer) {
-                unset($this->observers[$key]);
-            }
+        if (array_key_exists($observerName, $this->observers)) {
+            unset($this->observers[$observerName]);
         }
     }
 
