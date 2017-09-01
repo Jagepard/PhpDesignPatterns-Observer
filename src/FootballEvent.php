@@ -15,48 +15,57 @@ namespace Behavioral\Observer;
  *
  * @package Behavioral\Observer
  */
-class FootballEvent implements EventIterface
+class FootballEvent implements EventInterface
 {
 
+    /**
+     *
+     */
     const GOAL = 'goal';
+    /**
+     *
+     */
     const MISS = 'miss a ball';
+    /**
+     *
+     */
     const FIRE = 'fire';
 
     /**
-     * @var
+     * @var string
      */
-    protected $name;
+    protected $eventName;
 
     /**
-     * @var
+     * @var FootballSubject
      */
-    protected $sender;
+    protected $footballSubject;
 
     /**
      * FootballEvent constructor.
      *
-     * @param $name
-     * @param $sender
+     * @param string          $eventName
+     * @param FootballSubject $footballSubject
      */
-    public function __construct($name, FootballTeam $sender)
+    public function __construct(string $eventName, FootballSubject $footballSubject)
     {
-        $this->name   = $name;
-        $this->sender = $sender;
+        $this->eventName       = $eventName;
+        $this->footballSubject = $footballSubject;
     }
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function getName()
+    public function getEventName(): string
     {
-        return $this->name;
+        return $this->eventName;
     }
 
     /**
-     * @return mixed
+     * @return FootballSubject
      */
-    public function getSender()
+    public function getFootballSubject(): FootballSubject
     {
-        return $this->sender;
+        return $this->footballSubject;
     }
 }
