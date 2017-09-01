@@ -20,22 +20,16 @@ interface SubjectInterface
 
     /**
      * @param \Behavioral\Observer\ObserverInterface $observer
-     *
-     * @return mixed
      */
-    public function attachObserver(ObserverInterface $observer);
+    public function attachObserver(ObserverInterface $observer): void;
 
     /**
      * @param \Behavioral\Observer\ObserverInterface $observer
-     *
-     * @return mixed
      */
-    public function detachObserver(ObserverInterface $observer);
+    public function detachObserver(ObserverInterface $observer): void;
 
     /**
-     * @param \Behavioral\Observer\EventIterface $event
-     *
-     * @return mixed
+     * @param \Behavioral\Observer\EventInterface $event
      */
-    public function notify(EventIterface $event);
+    public function notify(EventInterface $event): void;
 }
