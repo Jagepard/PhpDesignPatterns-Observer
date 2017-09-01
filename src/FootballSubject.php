@@ -66,24 +66,17 @@ class FootballSubject implements SubjectInterface
         return $this->subjectName;
     }
 
-    public function goalAction(): void
+    /**
+     * @param EventInterface $event
+     */
+    public function teamAction(EventInterface $event): void
     {
-        $event = new FootballEvent(FootballEvent::GOAL, $this);
         $this->notify($event);
     }
 
-    public function missAction(): void
-    {
-        $event = new FootballEvent(FootballEvent::MISS, $this);
-        $this->notify($event);
-    }
-
-    public function fireAction(): void
-    {
-        $event = new FootballEvent(FootballEvent::FIRE, $this);
-        $this->notify($event);
-    }
-
+    /**
+     * @param EventInterface $event
+     */
     public function notify(EventInterface $event): void
     {
         foreach ($this->observers as $observer) {
