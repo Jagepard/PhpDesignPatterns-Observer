@@ -19,53 +19,53 @@ class FootballObserver implements ObserverInterface
 {
 
     /**
-     * @var
+     * @var string
      */
-    protected $name;
+    protected $observerName;
 
     /**
-     * FootballFan constructor.
+     * FootballObserver constructor.
      *
-     * @param $name
+     * @param $observerName
      */
-    public function __construct($name)
+    public function __construct(string $observerName)
     {
-        $this->name = $name;
+        $this->observerName = $observerName;
     }
 
-    public function eventReaction(EventInterface $event)
+    public function eventReaction(EventInterface $event): void
     {
-        switch ($event->getName()) {
+        switch ($event->getEventName()) {
             case FootballEvent::GOAL:
                 printf(
                     "%s празнует ГОЛ!!! %s\n",
-                    $this->getName(), $event->getSender()->getSubjectName()
+                    $this->getObserverName(), $event->getFootballSubject()->getSubjectName()
                 );
                 break;
             case FootballEvent::MISS:
                 printf(
                     "%s поддерживает %s после пропущенного мяча\n",
-                    $this->getName(), $event->getSender()->getSubjectName()
+                    $this->getObserverName(), $event->getFootballSubject()->getSubjectName()
                 );
                 break;
             case FootballEvent::FIRE:
                 printf(
-                    "%s поджигает файер\n", $this->getName()
+                    "%s поджигает файер\n", $this->getObserverName()
                 );
                 break;
             default:
                 printf(
                     "%s отреагировал на событие %s\n",
-                    $this->getName(), $event->getSender()->getSubjectName()
+                    $this->getObserverName(), $event->getFootballSubject()->getSubjectName()
                 );
         }
     }
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function getName()
+    public function getObserverName(): string
     {
-        return $this->name;
+        return $this->observerName;
     }
 }
