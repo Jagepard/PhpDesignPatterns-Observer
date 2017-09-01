@@ -18,17 +18,8 @@ namespace Behavioral\Observer;
 class FootballEvent implements EventInterface
 {
 
-    /**
-     *
-     */
     const GOAL = 'goal';
-    /**
-     *
-     */
     const MISS = 'miss a ball';
-    /**
-     *
-     */
     const FIRE = 'fire';
 
     /**
