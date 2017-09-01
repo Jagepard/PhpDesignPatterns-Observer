@@ -24,9 +24,9 @@ interface SubjectInterface
     public function attachObserver(ObserverInterface $observer): void;
 
     /**
-     * @param \Behavioral\Observer\ObserverInterface $observer
+     * @param string $observerName
      */
-    public function detachObserver(ObserverInterface $observer): void;
+    public function detachObserver(string $observerName): void;
 
     /**
      * @param \Behavioral\Observer\EventInterface $event
