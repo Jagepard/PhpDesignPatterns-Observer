@@ -2,10 +2,11 @@
 
 require_once 'vendor/autoload.php';
 
-$team = new \Behavioral\Observer\FootballTeam('Динамо');
+$team = new \Behavioral\Observer\FootballSubject('Динамо');
 
-$team->attachObserver(new \Behavioral\Observer\FootballFan('Петя'));
-$team->attachObserver(new \Behavioral\Observer\FootballFan('Вася'));
+$team->attachObserver(new \Behavioral\Observer\FootballObserver('Петя'));
+$team->attachObserver(new \Behavioral\Observer\FootballObserver('Вася'));
 
 $team->goalAction();
 $team->missAction();
+$team->fireAction();
