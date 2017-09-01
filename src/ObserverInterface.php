@@ -23,5 +23,5 @@ interface ObserverInterface
      *
      * @return mixed
      */
-    public function eventReaction(EventInterface $event);
+    public function eventReaction(EventInterface $event): void;
 }
