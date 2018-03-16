@@ -5,16 +5,17 @@ namespace Behavioral\Observer;
 
 require_once 'vendor/autoload.php';
 
-$team = new FootballSubject('Динамо');
+$team = new FootballSubject('Manchester United');
 
-$team->attachObserver(new FootballObserver('Петя'));
-$team->attachObserver(new FootballObserver('Вася'));
+$team->attachObserver(new FootballObserver('John'));
+$team->attachObserver(new FootballObserver('Bill'));
 
 $team->notify(new FootballEvent(FootballEvent::GOAL));
 $team->notify(new FootballEvent(FootballEvent::MISS));
-$team->notify(new FootballEvent(FootballEvent::FIRE));
+$team->notify(new FootballEvent(FootballEvent::CARD));
 
-$team->detachObserver('Вася');
-$team->attachObserver(new FootballObserver('Иван'));
+$team->detachObserver('Bill');
+$team->attachObserver(new FootballObserver('Steve'));
 
 $team->notify(new FootballEvent(FootballEvent::GOAL));
+$team->notify(new FootballEvent('Offside'));

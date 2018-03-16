@@ -23,43 +23,43 @@ class ObserverTest extends PHPUnit_Framework_TestCase
 
     protected function setUp(): void
     {
-        $this->team = new FootballSubject('Динамо');
+        $this->team = new FootballSubject('Manchester United');
     }
 
     public function testFootballSubject(): void
     {
         $this->assertInstanceOf(FootballSubject::class, $this->getTeam());
-        $this->assertEquals('Динамо', $this->getTeam()->getSubjectName());
+        $this->assertEquals('Manchester United', $this->getTeam()->getSubjectName());
     }
 
     public function testTeamAction(): void
     {
-        $this->getTeam()->attachObserver(new FootballObserver('Петя'));
-        $this->getTeam()->attachObserver(new FootballObserver('Вася'));
+        $this->getTeam()->attachObserver(new FootballObserver('John'));
+        $this->getTeam()->attachObserver(new FootballObserver('Bill'));
 
         ob_start();
         $this->getTeam()->notify(new FootballEvent(FootballEvent::GOAL));
         $goal = ob_get_clean();
 
-        $this->assertEquals($goal, "Петя празнует ГОЛ!!! Динамо\nВася празнует ГОЛ!!! Динамо\n");
+        $this->assertEquals($goal, "John has get information about: Manchester United Goal!!! \nBill has get information about: Manchester United Goal!!! \n");
 
         ob_start();
         $this->getTeam()->notify(new FootballEvent(FootballEvent::MISS));
         $miss = ob_get_clean();
 
-        $this->assertEquals($miss, "Петя поддерживает Динамо после пропущенного мяча\nВася поддерживает Динамо после пропущенного мяча\n");
+        $this->assertEquals($miss, "John has get information about: Manchester United missing a ball((( \nBill has get information about: Manchester United missing a ball((( \n");
 
         ob_start();
-        $this->getTeam()->notify(new FootballEvent(FootballEvent::FIRE));
-        $fire = ob_get_clean();
+        $this->getTeam()->notify(new FootballEvent(FootballEvent::CARD));
+        $card = ob_get_clean();
 
-        $this->assertEquals($fire, "Петя поджигает файер\nВася поджигает файер\n");
+        $this->assertEquals($card, "John has get information about: Manchester United getting a yellow card \nBill has get information about: Manchester United getting a yellow card \n");
 
         ob_start();
         $this->getTeam()->notify(new FootballEvent('random'));
         $random = ob_get_clean();
 
-        $this->assertEquals($random, "Петя отреагировал на событие Динамо\nВася отреагировал на событие Динамо\n");
+        $this->assertEquals($random, "John has get information about: Manchester United random \nBill has get information about: Manchester United random \n");
     }
 
     public function testDetachObserver()

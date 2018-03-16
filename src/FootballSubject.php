@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 /**
  * @author    : Korotkov Danila <dankorot@gmail.com>
@@ -62,7 +62,8 @@ class FootballSubject implements SubjectInterface
     public function notify(EventInterface $event): void
     {
         foreach ($this->observers as $observer) {
-            $observer->eventReaction($event, $this);
+            printf("%s has get information about: %s %s \n",
+                $observer->getObserverName(), $this->getSubjectName(), $event->getEventName());
         }
     }
 
