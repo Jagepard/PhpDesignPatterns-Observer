@@ -38,25 +38,25 @@ class ObserverTest extends PHPUnit_Framework_TestCase
         $this->getTeam()->attachObserver(new FootballObserver('Вася'));
 
         ob_start();
-        $this->getTeam()->notify(new FootballEvent(FootballEvent::GOAL, $this->getTeam()));
+        $this->getTeam()->notify(new FootballEvent(FootballEvent::GOAL));
         $goal = ob_get_clean();
 
         $this->assertEquals($goal, "Петя празнует ГОЛ!!! Динамо\nВася празнует ГОЛ!!! Динамо\n");
 
         ob_start();
-        $this->getTeam()->notify(new FootballEvent(FootballEvent::MISS, $this->getTeam()));
+        $this->getTeam()->notify(new FootballEvent(FootballEvent::MISS));
         $miss = ob_get_clean();
 
         $this->assertEquals($miss, "Петя поддерживает Динамо после пропущенного мяча\nВася поддерживает Динамо после пропущенного мяча\n");
 
         ob_start();
-        $this->getTeam()->notify(new FootballEvent(FootballEvent::FIRE, $this->getTeam()));
+        $this->getTeam()->notify(new FootballEvent(FootballEvent::FIRE));
         $fire = ob_get_clean();
 
         $this->assertEquals($fire, "Петя поджигает файер\nВася поджигает файер\n");
 
         ob_start();
-        $this->getTeam()->notify(new FootballEvent('random', $this->getTeam()));
+        $this->getTeam()->notify(new FootballEvent('random'));
         $random = ob_get_clean();
 
         $this->assertEquals($random, "Петя отреагировал на событие Динамо\nВася отреагировал на событие Динамо\n");
