@@ -28,20 +28,12 @@ class FootballEvent implements EventInterface
     protected $eventName;
 
     /**
-     * @var FootballSubject
-     */
-    protected $footballSubject;
-
-    /**
      * FootballEvent constructor.
-     *
-     * @param string          $eventName
-     * @param FootballSubject $footballSubject
+     * @param string $eventName
      */
-    public function __construct(string $eventName, FootballSubject $footballSubject)
+    public function __construct(string $eventName)
     {
         $this->eventName       = $eventName;
-        $this->footballSubject = $footballSubject;
     }
 
     /**
@@ -50,13 +42,5 @@ class FootballEvent implements EventInterface
     public function getEventName(): string
     {
         return $this->eventName;
-    }
-
-    /**
-     * @return FootballSubject
-     */
-    public function getFootballSubject(): FootballSubject
-    {
-        return $this->footballSubject;
     }
 }

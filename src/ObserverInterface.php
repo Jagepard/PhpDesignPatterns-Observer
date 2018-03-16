@@ -19,9 +19,13 @@ interface ObserverInterface
 {
 
     /**
-     * @param \Behavioral\Observer\EventInterface $event
-     *
-     * @return mixed
+     * @param EventInterface   $event
+     * @param SubjectInterface $subject
      */
-    public function eventReaction(EventInterface $event): void;
+    public function eventReaction(EventInterface $event, SubjectInterface $subject): void;
+
+    /**
+     * @return string
+     */
+    public function getObserverName(): string;
 }

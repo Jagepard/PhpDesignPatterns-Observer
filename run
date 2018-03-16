@@ -1,0 +1,20 @@
+#! usr/bin/env php
+<?php
+
+namespace Behavioral\Observer;
+
+require_once 'vendor/autoload.php';
+
+$team = new FootballSubject('Динамо');
+
+$team->attachObserver(new FootballObserver('Петя'));
+$team->attachObserver(new FootballObserver('Вася'));
+
+$team->notify(new FootballEvent(FootballEvent::GOAL));
+$team->notify(new FootballEvent(FootballEvent::MISS));
+$team->notify(new FootballEvent(FootballEvent::FIRE));
+
+$team->detachObserver('Вася');
+$team->attachObserver(new FootballObserver('Иван'));
+
+$team->notify(new FootballEvent(FootballEvent::GOAL));
