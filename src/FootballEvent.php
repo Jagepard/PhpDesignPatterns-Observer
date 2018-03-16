@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 /**
  * @author    : Korotkov Danila <dankorot@gmail.com>
@@ -18,9 +18,9 @@ namespace Behavioral\Observer;
 class FootballEvent implements EventInterface
 {
 
-    const GOAL = 'goal';
-    const MISS = 'miss a ball';
-    const FIRE = 'fire';
+    const GOAL = 'Goal!!!';
+    const MISS = 'missing a ball(((';
+    const CARD = 'getting a yellow card';
 
     /**
      * @var string
@@ -33,7 +33,7 @@ class FootballEvent implements EventInterface
      */
     public function __construct(string $eventName)
     {
-        $this->eventName       = $eventName;
+        $this->eventName = $eventName;
     }
 
     /**
