@@ -1,5 +1,5 @@
 {
-    "name"        : "php-design-patterns/mediator",
+    "name"        : "php-design-patterns/observer",
     "description" : "PhpDesignPatterns",
     "type"        : "library",
     "keywords"    : [

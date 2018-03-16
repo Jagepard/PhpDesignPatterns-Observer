@@ -22,9 +22,4 @@ interface EventInterface
      * @return string
      */
     public function getEventName(): string ;
-
-    /**
-     * @return FootballSubject
-     */
-    public function getFootballSubject(): FootballSubject;
 }
