@@ -1,18 +1,23 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 /**
  * @author    : Korotkov Danila <dankorot@gmail.com>
- * @copyright Copyright (c) 2017, Korotkov Danila
- * @license   http://www.gnu.org/licenses/gpl.html GNU GPLv3.0
+ * @license   https://mit-license.org/ MIT
  */
 
-use PHPUnit\Framework\TestCase as PHPUnit_Framework_TestCase;
+namespace Behavioral\Observer\Tests;
+
+use Behavioral\Observer\FootballEvent;
 use Behavioral\Observer\FootballSubject;
 use Behavioral\Observer\FootballObserver;
-use Behavioral\Observer\FootballEvent;
+use PHPUnit\Framework\TestCase as PHPUnit_Framework_TestCase;
 
+/**
+ * Class ObserverTest
+ * @package Behavioral\Observer\Tests
+ */
 class ObserverTest extends PHPUnit_Framework_TestCase
 {
 
@@ -28,35 +33,35 @@ class ObserverTest extends PHPUnit_Framework_TestCase
 
     public function testFootballSubject(): void
     {
-        $this->assertInstanceOf(FootballSubject::class, $this->getTeam());
-        $this->assertEquals('Manchester United', $this->getTeam()->getSubjectName());
+        $this->assertInstanceOf(FootballSubject::class, $this->team);
+        $this->assertEquals('Manchester United', $this->team->getName());
     }
 
     public function testTeamAction(): void
     {
-        $this->getTeam()->attachObserver(new FootballObserver('John'));
-        $this->getTeam()->attachObserver(new FootballObserver('Bill'));
+        $this->team->attachObserver(new FootballObserver('John'));
+        $this->team->attachObserver(new FootballObserver('Bill'));
 
         ob_start();
-        $this->getTeam()->notify(new FootballEvent(FootballEvent::GOAL));
+        $this->team->notify(new FootballEvent(FootballEvent::GOAL));
         $goal = ob_get_clean();
 
         $this->assertEquals($goal, "John has get information about: Manchester United Goal!!! \nBill has get information about: Manchester United Goal!!! \n");
 
         ob_start();
-        $this->getTeam()->notify(new FootballEvent(FootballEvent::MISS));
+        $this->team->notify(new FootballEvent(FootballEvent::MISS));
         $miss = ob_get_clean();
 
         $this->assertEquals($miss, "John has get information about: Manchester United missing a ball((( \nBill has get information about: Manchester United missing a ball((( \n");
 
         ob_start();
-        $this->getTeam()->notify(new FootballEvent(FootballEvent::CARD));
+        $this->team->notify(new FootballEvent(FootballEvent::CARD));
         $card = ob_get_clean();
 
         $this->assertEquals($card, "John has get information about: Manchester United getting a yellow card \nBill has get information about: Manchester United getting a yellow card \n");
 
         ob_start();
-        $this->getTeam()->notify(new FootballEvent('random'));
+        $this->team->notify(new FootballEvent('random'));
         $random = ob_get_clean();
 
         $this->assertEquals($random, "John has get information about: Manchester United random \nBill has get information about: Manchester United random \n");
@@ -65,37 +70,21 @@ class ObserverTest extends PHPUnit_Framework_TestCase
     public function testDetachObserver()
     {
         $observer = new FootballObserver('Петя');
+        $this->assertEquals($observer->getName(), 'Петя');
 
-        $this->assertEquals($observer->getObserverName(), 'Петя');
+        $this->team->attachObserver($observer);
+        $this->assertEquals('Петя', $this->getProperty('observers')->getValue($this->team)['Петя']->getName());
 
-        $this->getTeam()->attachObserver($observer);
-
-        $this->assertEquals('Петя', $this->getProperty('observers')->getValue($this->getTeam())['Петя']->getObserverName());
-
-        $this->getTeam()->detachObserver('Петя');
-
-        $this->assertCount(0, $this->getProperty('observers')->getValue($this->getTeam()));
+        $this->team->detachObserver('Петя');
+        $this->assertCount(0, $this->getProperty('observers')->getValue($this->team));
     }
 
-    /**
-     * @param string $name
-     *
-     * @return ReflectionProperty
-     */
-    protected function getProperty(string $name): ReflectionProperty
+    protected function getProperty(string $name): \ReflectionProperty
     {
-        $class = new ReflectionClass($this->getTeam());
+        $class    = new \ReflectionClass($this->team);
         $property = $class->getProperty($name);
         $property->setAccessible(true);
 
         return $property;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTeam(): FootballSubject
-    {
-        return $this->team;
     }
 }

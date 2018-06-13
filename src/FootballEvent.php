@@ -4,15 +4,13 @@ declare(strict_types=1);
 
 /**
  * @author    : Korotkov Danila <dankorot@gmail.com>
- * @copyright Copyright (c) 2017, Korotkov Danila
- * @license   http://www.gnu.org/licenses/gpl.html GNU GPLv3.0
+ * @license   https://mit-license.org/ MIT
  */
 
 namespace Behavioral\Observer;
 
 /**
  * Class FootballEvent
- *
  * @package Behavioral\Observer
  */
 class FootballEvent implements EventInterface
@@ -25,22 +23,22 @@ class FootballEvent implements EventInterface
     /**
      * @var string
      */
-    protected $eventName;
+    protected $name;
 
     /**
      * FootballEvent constructor.
-     * @param string $eventName
+     * @param string $name
      */
-    public function __construct(string $eventName)
+    public function __construct(string $name)
     {
-        $this->eventName = $eventName;
+        $this->name = $name;
     }
 
     /**
      * @return string
      */
-    public function getEventName(): string
+    public function getName(): string
     {
-        return $this->eventName;
+        return $this->name;
     }
 }

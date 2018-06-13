@@ -4,38 +4,34 @@ declare(strict_types=1);
 
 /**
  * @author    : Korotkov Danila <dankorot@gmail.com>
- * @copyright Copyright (c) 2017, Korotkov Danila
- * @license   http://www.gnu.org/licenses/gpl.html GNU GPLv3.0
+ * @license   https://mit-license.org/ MIT
  */
 
 namespace Behavioral\Observer;
 
 /**
  * Class FootballSubject
- *
  * @package Behavioral\Observer
  */
 class FootballSubject implements SubjectInterface
 {
 
     /**
+     * @var string
+     */
+    protected $name;
+    /**
      * @var array
      */
     protected $observers = [];
 
     /**
-     * @var string
-     */
-    protected $subjectName;
-
-    /**
      * FootballSubject constructor.
-     *
-     * @param string $subjectName
+     * @param string $name
      */
-    public function __construct(string $subjectName)
+    public function __construct(string $name)
     {
-        $this->subjectName = $subjectName;
+        $this->name = $name;
     }
 
     /**
@@ -43,16 +39,16 @@ class FootballSubject implements SubjectInterface
      */
     public function attachObserver(ObserverInterface $observer): void
     {
-        $this->observers[$observer->getObserverName()] = $observer;
+        $this->observers[$observer->getName()] = $observer;
     }
 
     /**
-     * @param string $observerName
+     * @param string $name
      */
-    public function detachObserver(string $observerName): void
+    public function detachObserver(string $name): void
     {
-        if (array_key_exists($observerName, $this->observers)) {
-            unset($this->observers[$observerName]);
+        if (array_key_exists($name, $this->observers)) {
+            unset($this->observers[$name]);
         }
     }
 
@@ -63,15 +59,15 @@ class FootballSubject implements SubjectInterface
     {
         foreach ($this->observers as $observer) {
             printf("%s has get information about: %s %s \n",
-                $observer->getObserverName(), $this->getSubjectName(), $event->getEventName());
+                $observer->getName(), $this->name, $event->getName());
         }
     }
 
     /**
      * @return mixed
      */
-    public function getSubjectName(): string
+    public function getName(): string
     {
-        return $this->subjectName;
+        return $this->name;
     }
 }
