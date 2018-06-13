@@ -1,18 +1,16 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 /**
  * @author    : Korotkov Danila <dankorot@gmail.com>
- * @copyright Copyright (c) 2017, Korotkov Danila
- * @license   http://www.gnu.org/licenses/gpl.html GNU GPLv3.0
+ * @license   https://mit-license.org/ MIT
  */
 
 namespace Behavioral\Observer;
 
 /**
  * Class FootballObserver
- *
  * @package Behavioral\Observer
  */
 class FootballObserver implements ObserverInterface
@@ -21,23 +19,22 @@ class FootballObserver implements ObserverInterface
     /**
      * @var string
      */
-    protected $observerName;
+    protected $name;
 
     /**
      * FootballObserver constructor.
-     *
-     * @param $observerName
+     * @param string $name
      */
-    public function __construct(string $observerName)
+    public function __construct(string $name)
     {
-        $this->observerName = $observerName;
+        $this->name = $name;
     }
 
     /**
      * @return string
      */
-    public function getObserverName(): string
+    public function getName(): string
     {
-        return $this->observerName;
+        return $this->name;
     }
 }
