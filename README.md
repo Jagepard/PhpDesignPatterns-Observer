@@ -4,5 +4,5 @@
 [![Code Climate](https://codeclimate.com/github/Jagepard/PhpDesignPatterns-Observer/badges/gpa.svg)](https://codeclimate.com/github/Jagepard/PhpDesignPatterns-Observer)
 [![License: MIT](https://img.shields.io/badge/license-MIT-498e7f.svg)](https://mit-license.org/)
 -----
-# Observer
+# Observer | [API](https://github.com/Jagepard/PhpDesignPatterns-Observer/blob/master/docs.md "Documentation API")
 Наблюдатель
