@@ -6,3 +6,5 @@
 -----
 # Observer | [API](https://github.com/Jagepard/PhpDesignPatterns-Observer/blob/master/docs.md "Documentation API")
 Наблюдатель
+
+![Observer](https://github.com/Jagepard/PhpDesignPatterns-Observer/blob/master/UML.png)
