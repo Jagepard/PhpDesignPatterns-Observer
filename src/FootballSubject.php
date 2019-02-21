@@ -15,15 +15,14 @@ namespace Behavioral\Observer;
  */
 class FootballSubject implements SubjectInterface
 {
-
     /**
      * @var string
      */
-    protected $name;
+    private $name;
     /**
      * @var array
      */
-    protected $observers = [];
+    private $observers = [];
 
     /**
      * FootballSubject constructor.
@@ -47,9 +46,11 @@ class FootballSubject implements SubjectInterface
      */
     public function detachObserver(string $name): void
     {
-        if (array_key_exists($name, $this->observers)) {
-            unset($this->observers[$name]);
+        if (!array_key_exists($name, $this->observers)) {
+            throw new \InvalidArgumentException();
         }
+
+        unset($this->observers[$name]);
     }
 
     /**
@@ -59,7 +60,7 @@ class FootballSubject implements SubjectInterface
     {
         foreach ($this->observers as $observer) {
             printf("%s has get information about: %s %s \n",
-                $observer->getName(), $this->name, $event->getName());
+                $observer->getName(), $this->getName(), $event->getName());
         }
     }
 

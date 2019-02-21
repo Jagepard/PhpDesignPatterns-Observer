@@ -15,7 +15,6 @@ namespace Behavioral\Observer;
  */
 class FootballObserver implements ObserverInterface
 {
-
     /**
      * @var string
      */
