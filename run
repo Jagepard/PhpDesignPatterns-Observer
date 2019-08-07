@@ -7,15 +7,20 @@ require_once 'vendor/autoload.php';
 
 $team = new FootballSubject('Manchester United');
 
-$team->attachObserver(new FootballObserver('John'));
-$team->attachObserver(new FootballObserver('Bill'));
+try {
+    $team->attachObserver(new FootballObserver('John'));
+    $team->attachObserver(new FootballObserver('Bill'));
 
-$team->notify(new FootballEvent(FootballEvent::GOAL));
-$team->notify(new FootballEvent(FootballEvent::MISS));
-$team->notify(new FootballEvent(FootballEvent::CARD));
+    $team->notify(new FootballEvent(FootballEvent::GOAL));
+    $team->notify(new FootballEvent(FootballEvent::MISS));
+    $team->notify(new FootballEvent(FootballEvent::CARD));
 
-$team->detachObserver('Bill');
-$team->attachObserver(new FootballObserver('Steve'));
+    $team->detachObserver('Bill');
+    $team->attachObserver(new FootballObserver('Steve'));
 
-$team->notify(new FootballEvent(FootballEvent::GOAL));
-$team->notify(new FootballEvent('Offside'));
+    $team->notify(new FootballEvent(FootballEvent::GOAL));
+    $team->notify(new FootballEvent('Offside'));
+} catch (\Exception $e) {
+    echo 'Caught exception: ',  $e->getMessage(), "\n";
+}
+
