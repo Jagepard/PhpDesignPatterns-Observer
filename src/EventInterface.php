@@ -7,10 +7,6 @@
 
 namespace Behavioral\Observer;
 
-/**
- * Interface EventInterface
- * @package Behavioral\Observer
- */
 interface EventInterface
 {
     /**
