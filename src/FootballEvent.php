@@ -9,10 +9,6 @@ declare(strict_types=1);
 
 namespace Behavioral\Observer;
 
-/**
- * Class FootballEvent
- * @package Behavioral\Observer
- */
 class FootballEvent implements EventInterface
 {
     const GOAL = 'Goal!!!';
