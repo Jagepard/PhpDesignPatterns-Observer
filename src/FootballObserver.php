@@ -9,10 +9,6 @@ declare(strict_types=1);
 
 namespace Behavioral\Observer;
 
-/**
- * Class FootballObserver
- * @package Behavioral\Observer
- */
 class FootballObserver implements ObserverInterface
 {
     /**

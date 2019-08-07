@@ -9,10 +9,6 @@ declare(strict_types=1);
 
 namespace Behavioral\Observer;
 
-/**
- * Class FootballSubject
- * @package Behavioral\Observer
- */
 class FootballSubject implements SubjectInterface
 {
     /**
@@ -35,9 +31,14 @@ class FootballSubject implements SubjectInterface
 
     /**
      * @param ObserverInterface $observer
+     * @throws \Exception
      */
     public function attachObserver(ObserverInterface $observer): void
     {
+        if (array_key_exists($observer->getName(), $this->observers)) {
+            throw new \InvalidArgumentException('Observer is already exist');
+        }
+
         $this->observers[$observer->getName()] = $observer;
     }
 
@@ -47,7 +48,7 @@ class FootballSubject implements SubjectInterface
     public function detachObserver(string $name): void
     {
         if (!array_key_exists($name, $this->observers)) {
-            throw new \InvalidArgumentException();
+            throw new \InvalidArgumentException('Observer is not exist');
         }
 
         unset($this->observers[$name]);
