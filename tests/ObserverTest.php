@@ -15,10 +15,6 @@ use Behavioral\Observer\FootballObserver;
 use Behavioral\Observer\SubjectInterface;
 use PHPUnit\Framework\TestCase as PHPUnit_Framework_TestCase;
 
-/**
- * Class ObserverTest
- * @package Behavioral\Observer\Tests
- */
 class ObserverTest extends PHPUnit_Framework_TestCase
 {
     /**
