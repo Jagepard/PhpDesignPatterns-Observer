@@ -68,4 +68,12 @@ class FootballSubject implements SubjectInterface
             );
         }
     }
+
+    /**
+     * @return string
+     */
+    public function getSubjectName(): string
+    {
+        return $this->subjectName;
+    }
 }
