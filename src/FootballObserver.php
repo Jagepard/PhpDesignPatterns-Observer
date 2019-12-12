@@ -3,8 +3,8 @@
 declare(strict_types=1);
 
 /**
- * @author    : Korotkov Danila <dankorot@gmail.com>
- * @license   https://mit-license.org/ MIT
+ * @author  : Jagepard <jagepard@yandex.ru>
+ * @license https://mit-license.org/ MIT
  */
 
 namespace Behavioral\Observer;
@@ -14,22 +14,22 @@ class FootballObserver implements ObserverInterface
     /**
      * @var string
      */
-    protected $name;
+    protected $observerName;
 
     /**
      * FootballObserver constructor.
-     * @param string $name
+     * @param  string  $observerName
      */
-    public function __construct(string $name)
+    public function __construct(string $observerName)
     {
-        $this->name = $name;
+        $this->observerName = $observerName;
     }
 
     /**
      * @return string
      */
-    public function getName(): string
+    public function getObserverName(): string
     {
-        return $this->name;
+        return $this->observerName;
     }
 }
