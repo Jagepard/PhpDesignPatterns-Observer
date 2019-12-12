@@ -5,8 +5,6 @@
 [![License: MIT](https://img.shields.io/badge/license-MIT-498e7f.svg)](https://mit-license.org/)
 -----
 # Observer | [API](https://github.com/Jagepard/PhpDesignPatterns-Observer/blob/master/docs.md "Documentation API")
-```php run``` Запустить исполнение шаблона в терминале
-
-Наблюдатель
+```php run``` execute in terminal
 
 ![Observer](https://github.com/Jagepard/PhpDesignPatterns-Observer/blob/master/UML.png)
