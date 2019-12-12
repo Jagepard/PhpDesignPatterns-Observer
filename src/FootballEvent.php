@@ -13,7 +13,7 @@ class FootballEvent implements EventInterface
 {
     const GOAL = 'Goal!!!';
     const MISS = 'missing a ball(((';
-    const CARD = 'getting a yellow card';
+    const VIOLATION = 'getting a yellow card';
 
     /**
      * @var string
