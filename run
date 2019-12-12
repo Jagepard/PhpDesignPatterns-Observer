@@ -11,16 +11,15 @@ try {
     $team->attachObserver(new FootballObserver('John'));
     $team->attachObserver(new FootballObserver('Bill'));
 
-    $team->notify(new FootballEvent(FootballEvent::GOAL));
-    $team->notify(new FootballEvent(FootballEvent::MISS));
-    $team->notify(new FootballEvent(FootballEvent::CARD));
+    $team->notifyObservers(new FootballEvent(FootballEvent::GOAL));
+    $team->notifyObservers(new FootballEvent(FootballEvent::MISS));
+    $team->notifyObservers(new FootballEvent(FootballEvent::VIOLATION));
 
     $team->detachObserver('Bill');
     $team->attachObserver(new FootballObserver('Steve'));
 
-    $team->notify(new FootballEvent(FootballEvent::GOAL));
-    $team->notify(new FootballEvent('Offside'));
+    $team->notifyObservers(new FootballEvent(FootballEvent::GOAL));
+    $team->notifyObservers(new FootballEvent('Offside'));
 } catch (\Exception $e) {
     echo 'Caught exception: ',  $e->getMessage(), "\n";
 }
-
