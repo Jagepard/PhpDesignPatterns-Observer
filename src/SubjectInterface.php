@@ -1,8 +1,8 @@
 <?php
 
 /**
- * @author    : Korotkov Danila <dankorot@gmail.com>
- * @license   https://mit-license.org/ MIT
+ * @author  : Jagepard <jagepard@yandex.ru>
+ * @license https://mit-license.org/ MIT
  */
 
 namespace Behavioral\Observer;
@@ -10,17 +10,17 @@ namespace Behavioral\Observer;
 interface SubjectInterface
 {
     /**
-     * @param \Behavioral\Observer\ObserverInterface $observer
+     * @param  ObserverInterface  $observer
      */
     public function attachObserver(ObserverInterface $observer): void;
 
     /**
-     * @param string $observerName
+     * @param  string  $observerName
      */
     public function detachObserver(string $observerName): void;
 
     /**
-     * @param \Behavioral\Observer\EventInterface $event
+     * @param  EventInterface  $event
      */
-    public function notify(EventInterface $event): void;
+    public function notifyObservers(EventInterface $event): void;
 }

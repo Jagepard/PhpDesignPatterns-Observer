@@ -3,8 +3,8 @@
 declare(strict_types=1);
 
 /**
- * @author    : Korotkov Danila <dankorot@gmail.com>
- * @license   https://mit-license.org/ MIT
+ * @author  : Jagepard <jagepard@yandex.ru>
+ * @license https://mit-license.org/ MIT
  */
 
 namespace Behavioral\Observer;
@@ -13,27 +13,27 @@ class FootballEvent implements EventInterface
 {
     const GOAL = 'Goal!!!';
     const MISS = 'missing a ball(((';
-    const CARD = 'getting a yellow card';
+    const VIOLATION = 'getting a yellow card';
 
     /**
      * @var string
      */
-    private $name;
+    private $eventName;
 
     /**
      * FootballEvent constructor.
-     * @param string $name
+     * @param  string  $eventName
      */
-    public function __construct(string $name)
+    public function __construct(string $eventName)
     {
-        $this->name = $name;
+        $this->eventName = $eventName;
     }
 
     /**
      * @return string
      */
-    public function getName(): string
+    public function getEventName(): string
     {
-        return $this->name;
+        return $this->eventName;
     }
 }
