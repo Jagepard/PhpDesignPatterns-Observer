@@ -11,23 +11,13 @@ namespace Behavioral\Observer;
 
 class FootballObserver implements ObserverInterface
 {
-    /**
-     * @var string
-     */
-    protected $observerName;
+    protected string $observerName;
 
-    /**
-     * FootballObserver constructor.
-     * @param  string  $observerName
-     */
     public function __construct(string $observerName)
     {
         $this->observerName = $observerName;
     }
 
-    /**
-     * @return string
-     */
     public function getObserverName(): string
     {
         return $this->observerName;
