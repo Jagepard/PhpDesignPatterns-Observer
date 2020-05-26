@@ -9,18 +9,12 @@ declare(strict_types=1);
 
 namespace Behavioral\Observer\Tests;
 
-use Behavioral\Observer\FootballEvent;
-use Behavioral\Observer\FootballSubject;
-use Behavioral\Observer\FootballObserver;
-use Behavioral\Observer\SubjectInterface;
+use Behavioral\Observer\{FootballEvent, FootballSubject, FootballObserver, SubjectInterface};
 use PHPUnit\Framework\TestCase as PHPUnit_Framework_TestCase;
 
 class ObserverTest extends PHPUnit_Framework_TestCase
 {
-    /**
-     * @var SubjectInterface
-     */
-    private $team;
+    private SubjectInterface $team;
 
     protected function setUp(): void
     {
@@ -42,31 +36,31 @@ class ObserverTest extends PHPUnit_Framework_TestCase
         $this->getTeam()->notify(new FootballEvent(FootballEvent::GOAL));
         $goal = ob_get_clean();
 
-        $this->assertEquals($goal, "John has get information about: Manchester United Goal!!! \nBill has get information about: Manchester United Goal!!! \n");
+        $this->assertEquals("John has get information about: Manchester United Goal!!! \nBill has get information about: Manchester United Goal!!! \n", $goal);
 
         ob_start();
         $this->getTeam()->notify(new FootballEvent(FootballEvent::MISS));
         $miss = ob_get_clean();
 
-        $this->assertEquals($miss, "John has get information about: Manchester United missing a ball((( \nBill has get information about: Manchester United missing a ball((( \n");
+        $this->assertEquals("John has get information about: Manchester United missing a ball((( \nBill has get information about: Manchester United missing a ball((( \n", $miss);
 
         ob_start();
         $this->getTeam()->notify(new FootballEvent(FootballEvent::CARD));
         $card = ob_get_clean();
 
-        $this->assertEquals($card, "John has get information about: Manchester United getting a yellow card \nBill has get information about: Manchester United getting a yellow card \n");
+        $this->assertEquals("John has get information about: Manchester United getting a yellow card \nBill has get information about: Manchester United getting a yellow card \n", $card);
 
         ob_start();
         $this->getTeam()->notify(new FootballEvent('random'));
         $random = ob_get_clean();
 
-        $this->assertEquals($random, "John has get information about: Manchester United random \nBill has get information about: Manchester United random \n");
+        $this->assertEquals("John has get information about: Manchester United random \nBill has get information about: Manchester United random \n", $random);
     }
 
     public function testDetachObserver()
     {
         $observer = new FootballObserver('Петя');
-        $this->assertEquals($observer->getName(), 'Петя');
+        $this->assertEquals('Петя', $observer->getName());
 
         $this->getTeam()->attachObserver($observer);
         $this->assertEquals('Петя', $this->getProperty('observers')->getValue($this->getTeam())['Петя']->getName());
@@ -84,9 +78,6 @@ class ObserverTest extends PHPUnit_Framework_TestCase
         return $property;
     }
 
-    /**
-     * @return SubjectInterface
-     */
     public function getTeam(): SubjectInterface
     {
         return $this->team;

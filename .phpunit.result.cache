@@ -1,0 +1,1 @@
+C:37:"PHPUnit\Runner\DefaultTestResultCache":263:{a:2:{s:7:"defects";a:0:{}s:5:"times";a:3:{s:59:"Behavioral\Observer\Tests\ObserverTest::testFootballSubject";d:0.001;s:54:"Behavioral\Observer\Tests\ObserverTest::testTeamAction";d:0.005;s:58:"Behavioral\Observer\Tests\ObserverTest::testDetachObserver";d:0.001;}}}
