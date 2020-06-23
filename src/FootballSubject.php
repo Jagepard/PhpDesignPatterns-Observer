@@ -23,7 +23,7 @@ class FootballSubject implements SubjectInterface
     public function attachObserver(ObserverInterface $observer): void
     {
         if (array_key_exists($observer->getObserverName(), $this->observers)) {
-            throw new \InvalidArgumentException('Observer is already exist');
+            throw new \InvalidArgumentException("Observer is already exist");
         }
 
         $this->observers[$observer->getObserverName()] = $observer;
@@ -32,7 +32,7 @@ class FootballSubject implements SubjectInterface
     public function detachObserver(string $subjectName): void
     {
         if (!array_key_exists($subjectName, $this->observers)) {
-            throw new \InvalidArgumentException('Observer is not exist');
+            throw new \InvalidArgumentException("Observer is not exist");
         }
 
         unset($this->observers[$subjectName]);

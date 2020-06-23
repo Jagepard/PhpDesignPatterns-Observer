@@ -11,9 +11,9 @@ namespace Behavioral\Observer;
 
 class FootballEvent implements EventInterface
 {
-    const GOAL      = 'Goal!!!';
-    const MISS      = 'missing a ball(((';
-    const VIOLATION = 'getting a yellow card';
+    const GOAL      = "Goal!!!";
+    const MISS      = "missing a ball(((";
+    const VIOLATION = "getting a yellow card";
 
     private string $eventName;
 
