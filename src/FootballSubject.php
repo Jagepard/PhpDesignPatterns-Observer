@@ -11,31 +11,26 @@ namespace Behavioral\Observer;
 
 class FootballSubject implements SubjectInterface
 {
-    private string $subjectName;
+    use NameTrait;
 
     private array $observers = [];
 
-    public function __construct(string $subjectName)
-    {
-        $this->subjectName = $subjectName;
-    }
-
     public function attachObserver(ObserverInterface $observer): void
     {
-        if (array_key_exists($observer->getObserverName(), $this->observers)) {
+        if (array_key_exists($observer->getName(), $this->observers)) {
             throw new \InvalidArgumentException("Observer is already exist");
         }
 
-        $this->observers[$observer->getObserverName()] = $observer;
+        $this->observers[$observer->getName()] = $observer;
     }
 
-    public function detachObserver(string $subjectName): void
+    public function detachObserver(string $name): void
     {
-        if (!array_key_exists($subjectName, $this->observers)) {
+        if (!array_key_exists($name, $this->observers)) {
             throw new \InvalidArgumentException("Observer is not exist");
         }
 
-        unset($this->observers[$subjectName]);
+        unset($this->observers[$name]);
     }
 
     public function notifyObservers(EventInterface $event): void
@@ -43,15 +38,10 @@ class FootballSubject implements SubjectInterface
         foreach ($this->observers as $observer) {
             printf(
                 "%s has get information about: %s %s \n",
-                $observer->getObserverName(),
-                $this->subjectName,
-                $event->getEventName()
+                $observer->getName(),
+                $this->name,
+                $event->getName()
             );
         }
-    }
-
-    public function getSubjectName(): string
-    {
-        return $this->subjectName;
     }
 }
