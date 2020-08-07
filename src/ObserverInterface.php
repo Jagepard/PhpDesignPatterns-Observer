@@ -9,5 +9,5 @@ namespace Behavioral\Observer;
 
 interface ObserverInterface
 {
-    public function getObserverName(): string;
+    public function getName(): string;
 }
