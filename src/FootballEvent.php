@@ -11,19 +11,9 @@ namespace Behavioral\Observer;
 
 class FootballEvent implements EventInterface
 {
+    use NameTrait;
+
     const GOAL      = "Goal!!!";
     const MISS      = "missing a ball(((";
     const VIOLATION = "getting a yellow card";
-
-    private string $eventName;
-
-    public function __construct(string $eventName)
-    {
-        $this->eventName = $eventName;
-    }
-
-    public function getEventName(): string
-    {
-        return $this->eventName;
-    }
 }
