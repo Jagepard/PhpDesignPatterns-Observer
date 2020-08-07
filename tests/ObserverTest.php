@@ -24,7 +24,7 @@ class ObserverTest extends PHPUnit_Framework_TestCase
     public function testFootballSubject(): void
     {
         $this->assertInstanceOf(FootballSubject::class, $this->team);
-        $this->assertEquals('Manchester United', $this->team->getSubjectName());
+        $this->assertEquals('Manchester United', $this->team->getName());
     }
 
     public function testTeamAction(): void
@@ -72,10 +72,10 @@ class ObserverTest extends PHPUnit_Framework_TestCase
     public function testDetachObserver()
     {
         $observer = new FootballObserver('Петя');
-        $this->assertEquals('Петя', $observer->getObserverName());
+        $this->assertEquals('Петя', $observer->getName());
 
         $this->team->attachObserver($observer);
-        $this->assertEquals('Петя', $this->getProperty('observers')->getValue($this->team)['Петя']->getObserverName());
+        $this->assertEquals('Петя', $this->getProperty('observers')->getValue($this->team)['Петя']->getName());
 
         $this->team->detachObserver('Петя');
         $this->assertCount(0, $this->getProperty('observers')->getValue($this->team));
