@@ -11,15 +11,5 @@ namespace Behavioral\Observer;
 
 class FootballObserver implements ObserverInterface
 {
-    protected string $observerName;
-
-    public function __construct(string $observerName)
-    {
-        $this->observerName = $observerName;
-    }
-
-    public function getObserverName(): string
-    {
-        return $this->observerName;
-    }
+    use NameTrait;
 }
