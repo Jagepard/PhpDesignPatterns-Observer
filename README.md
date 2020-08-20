@@ -5,7 +5,7 @@
 [![License: MIT](https://img.shields.io/badge/license-MIT-498e7f.svg)](https://mit-license.org/)
 -----
 # Observer | [API]()
-```php run``` execute in terminal
+```php main.php``` execute in terminal
 
 ## Result:
 ```
