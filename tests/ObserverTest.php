@@ -37,7 +37,7 @@ class ObserverTest extends PHPUnit_Framework_TestCase
         $goal = ob_get_clean();
 
         $this->assertEquals(
-            "John has get information about: Manchester United Goal!!! \nBill has get information about: Manchester United Goal!!! \n",
+            "John has get information about: Manchester United Goal!!! \nBill has get information about: Manchester United Goal!!! \n\n",
             $goal
         );
 
@@ -46,7 +46,7 @@ class ObserverTest extends PHPUnit_Framework_TestCase
         $miss = ob_get_clean();
 
         $this->assertEquals(
-            "John has get information about: Manchester United missing a ball((( \nBill has get information about: Manchester United missing a ball((( \n",
+            "John has get information about: Manchester United missing a ball((( \nBill has get information about: Manchester United missing a ball((( \n\n",
             $miss
         );
 
@@ -55,7 +55,7 @@ class ObserverTest extends PHPUnit_Framework_TestCase
         $violation = ob_get_clean();
 
         $this->assertEquals(
-            "John has get information about: Manchester United getting a yellow card \nBill has get information about: Manchester United getting a yellow card \n",
+            "John has get information about: Manchester United getting a yellow card \nBill has get information about: Manchester United getting a yellow card \n\n",
             $violation
         );
 
@@ -64,7 +64,7 @@ class ObserverTest extends PHPUnit_Framework_TestCase
         $random = ob_get_clean();
 
         $this->assertEquals(
-            "John has get information about: Manchester United random \nBill has get information about: Manchester United random \n",
+            "John has get information about: Manchester United random \nBill has get information about: Manchester United random \n\n",
             $random
         );
     }
