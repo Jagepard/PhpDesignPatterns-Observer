@@ -1,71 +1,79 @@
 ## Table of contents
+- [Behavioral\Observer\EventInterface](#behavioral_observer_eventinterface)
+- [Behavioral\Observer\FootballEvent](#behavioral_observer_footballevent)
+- [Behavioral\Observer\FootballObserver](#behavioral_observer_footballobserver)
+- [Behavioral\Observer\FootballSubject](#behavioral_observer_footballsubject)
+- [Behavioral\Observer\NameTrait](#behavioral_observer_nametrait)
+- [Behavioral\Observer\ObserverInterface](#behavioral_observer_observerinterface)
+- [Behavioral\Observer\SubjectInterface](#behavioral_observer_subjectinterface)
+<hr>
 
-- [\Behavioral\Observer\EventInterface (interface)](#interface-behavioralobservereventinterface)
-- [\Behavioral\Observer\FootballEvent](#class-behavioralobserverfootballevent)
-- [\Behavioral\Observer\FootballObserver](#class-behavioralobserverfootballobserver)
-- [\Behavioral\Observer\FootballSubject](#class-behavioralobserverfootballsubject)
-- [\Behavioral\Observer\ObserverInterface (interface)](#interface-behavioralobserverobserverinterface)
-- [\Behavioral\Observer\SubjectInterface (interface)](#interface-behavioralobserversubjectinterface)
+<a id="behavioral_observer_eventinterface"></a>
 
-<hr />
-
-### Interface: \Behavioral\Observer\EventInterface
-
+### Class: Behavioral\Observer\EventInterface
 | Visibility | Function |
 |:-----------|:---------|
-| public | <strong>getName()</strong> : <em>mixed</em> |
+|abstract public|<em><strong>getName</strong>(): string</em><br>|
 
-<hr />
 
-### Class: \Behavioral\Observer\FootballEvent
+<a id="behavioral_observer_footballevent"></a>
 
+### Class: Behavioral\Observer\FootballEvent
+##### implements [Behavioral\Observer\EventInterface](#behavioral_observer_eventinterface)
 | Visibility | Function |
 |:-----------|:---------|
-| public | <strong>__construct(</strong><em>\string</em> <strong>$name</strong>)</strong> : <em>void</em> |
-| public | <strong>getName()</strong> : <em>mixed</em> |
+|public|<em><strong>__construct</strong>( string $name )</em><br>Sets the name<br>Устанавливает наименование|
+|public|<em><strong>getName</strong>(): string</em><br>Gets a name<br>Получает наименование|
 
-*This class implements [\Behavioral\Observer\EventInterface](#interface-behavioralobservereventinterface)*
 
-<hr />
+<a id="behavioral_observer_footballobserver"></a>
 
-### Class: \Behavioral\Observer\FootballObserver
-
+### Class: Behavioral\Observer\FootballObserver
+##### implements [Behavioral\Observer\ObserverInterface](#behavioral_observer_observerinterface)
 | Visibility | Function |
 |:-----------|:---------|
-| public | <strong>__construct(</strong><em>\string</em> <strong>$name</strong>)</strong> : <em>void</em> |
-| public | <strong>getName()</strong> : <em>mixed</em> |
+|public|<em><strong>__construct</strong>( string $name )</em><br>Sets the name<br>Устанавливает наименование|
+|public|<em><strong>getName</strong>(): string</em><br>Gets a name<br>Получает наименование|
 
-*This class implements [\Behavioral\Observer\ObserverInterface](#interface-behavioralobserverobserverinterface)*
 
-<hr />
+<a id="behavioral_observer_footballsubject"></a>
 
-### Class: \Behavioral\Observer\FootballSubject
-
+### Class: Behavioral\Observer\FootballSubject
+##### implements [Behavioral\Observer\SubjectInterface](#behavioral_observer_subjectinterface)
 | Visibility | Function |
 |:-----------|:---------|
-| public | <strong>__construct(</strong><em>\string</em> <strong>$name</strong>)</strong> : <em>void</em> |
-| public | <strong>attachObserver(</strong><em>[\Behavioral\Observer\ObserverInterface](#interface-behavioralobserverobserverinterface)</em> <strong>$observer</strong>)</strong> : <em>void</em> |
-| public | <strong>detachObserver(</strong><em>\string</em> <strong>$name</strong>)</strong> : <em>void</em> |
-| public | <strong>getName()</strong> : <em>mixed</em> |
-| public | <strong>notifyObservers(</strong><em>[\Behavioral\Observer\EventInterface](#interface-behavioralobservereventinterface)</em> <strong>$event</strong>)</strong> : <em>void</em> |
+|public|<em><strong>attachObserver</strong>( Behavioral\Observer\ObserverInterface $observer ): void</em><br>Adds an observer<br>Добавляет наблюдателя|
+|public|<em><strong>detachObserver</strong>( string $name ): void</em><br>Removes an observer<br>Убирает наблюдателя|
+|public|<em><strong>notifyObservers</strong>( Behavioral\Observer\EventInterface $event ): void</em><br>Notifies all observers of an event<br>Уведомляет всех наблюдателей о событии|
+|public|<em><strong>__construct</strong>( string $name )</em><br>Sets the name<br>Устанавливает наименование|
+|public|<em><strong>getName</strong>(): string</em><br>Gets a name<br>Получает наименование|
 
-*This class implements [\Behavioral\Observer\SubjectInterface](#interface-behavioralobserversubjectinterface)*
 
-<hr />
+<a id="behavioral_observer_nametrait"></a>
 
-### Interface: \Behavioral\Observer\ObserverInterface
-
+### Class: Behavioral\Observer\NameTrait
 | Visibility | Function |
 |:-----------|:---------|
-| public | <strong>getName()</strong> : <em>mixed</em> |
+|public|<em><strong>__construct</strong>( string $name )</em><br>Sets the name<br>Устанавливает наименование|
+|public|<em><strong>getName</strong>(): string</em><br>Gets a name<br>Получает наименование|
 
-<hr />
 
-### Interface: \Behavioral\Observer\SubjectInterface
+<a id="behavioral_observer_observerinterface"></a>
 
+### Class: Behavioral\Observer\ObserverInterface
 | Visibility | Function |
 |:-----------|:---------|
-| public | <strong>attachObserver(</strong><em>[\Behavioral\Observer\ObserverInterface](#interface-behavioralobserverobserverinterface)</em> <strong>$observer</strong>)</strong> : <em>void</em> |
-| public | <strong>detachObserver(</strong><em>\string</em> <strong>$observerName</strong>)</strong> : <em>void</em> |
-| public | <strong>notifyObservers(</strong><em>[\Behavioral\Observer\EventInterface](#interface-behavioralobservereventinterface)</em> <strong>$event</strong>)</strong> : <em>void</em> |
+|abstract public|<em><strong>getName</strong>(): string</em><br>|
 
+
+<a id="behavioral_observer_subjectinterface"></a>
+
+### Class: Behavioral\Observer\SubjectInterface
+| Visibility | Function |
+|:-----------|:---------|
+|abstract public|<em><strong>attachObserver</strong>( Behavioral\Observer\ObserverInterface $observer ): void</em><br>|
+|abstract public|<em><strong>detachObserver</strong>( string $observerName ): void</em><br>|
+|abstract public|<em><strong>notifyObservers</strong>( Behavioral\Observer\EventInterface $event ): void</em><br>|
+<hr>
+
+###### created with [Rudra-Documentation-Collector](#https://github.com/Jagepard/Rudra-Documentation-Collector)
