@@ -60,14 +60,7 @@ class FootballSubject implements SubjectInterface
     public function notifyObservers(EventInterface $event): void
     {
         foreach ($this->observers as $observer) {
-            printf(
-                "%s has get information about: %s %s \n",
-                $observer->getName(),
-                $this->name,
-                $event->getName()
-            );
+            $observer->update($this, $event);
         }
-
-        print("\n");
     }
 }

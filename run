@@ -1,10 +1,11 @@
+#! /usr/bin/env php
 <?php
 
 namespace Behavioral\Observer;
 
 require_once "vendor/autoload.php";
 
-$team = new FootballSubject("West ham United");
+$team = new FootballSubject("Manchester United");
 
 try {
     $team->attachObserver(new FootballObserver("John"));

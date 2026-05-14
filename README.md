@@ -5,18 +5,18 @@
 -----
 
 # Observer | [API](https://github.com/Jagepard/PhpDesignPatterns-Observer/blob/master/api.md)
-```php main.php``` execute in terminal
+```php run``` execute in terminal
 
 ## Result:
 ```
-John has get information about: Manchester United Goal!!! 
-Bill has get information about: Manchester United Goal!!! 
-John has get information about: Manchester United missing a ball((( 
-Bill has get information about: Manchester United missing a ball((( 
-John has get information about: Manchester United getting a yellow card 
-Bill has get information about: Manchester United getting a yellow card 
-John has get information about: Manchester United Goal!!! 
-Steve has get information about: Manchester United Goal!!! 
-John has get information about: Manchester United Offside 
-Steve has get information about: Manchester United Offside
+The observer John received event about: Manchester United GOAL
+The observer Bill received event about: Manchester United GOAL
+The observer John received event about: Manchester United MISS
+The observer Bill received event about: Manchester United MISS
+The observer John received event about: Manchester United VIOLATION
+The observer Bill received event about: Manchester United VIOLATION
+The observer John received event about: Manchester United GOAL
+The observer Steve received event about: Manchester United GOAL
+The observer John received event about: Manchester United Offside
+The observer Steve received event about: Manchester United Offside
 ```

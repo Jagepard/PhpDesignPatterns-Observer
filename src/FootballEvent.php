@@ -13,7 +13,7 @@ class FootballEvent implements EventInterface
 {
     use NameTrait;
 
-    const GOAL      = "Goal!!!";
-    const MISS      = "missing a ball(((";
-    const VIOLATION = "getting a yellow card";
+    const GOAL      = "GOAL";
+    const MISS      = "MISS";
+    const VIOLATION = "VIOLATION";
 }

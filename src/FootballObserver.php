@@ -12,4 +12,12 @@ namespace Behavioral\Observer;
 class FootballObserver implements ObserverInterface
 {
     use NameTrait;
+
+    public function update(SubjectInterface $subject, EventInterface $event): void
+    {
+        echo "The observer " . $this->getName() 
+            . " received event about: " 
+            . $subject->getName() . " " 
+            . $event->getName() . "\n";
+    }
 }
